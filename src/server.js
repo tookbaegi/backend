@@ -5,7 +5,6 @@ import express from 'express';
 import morgan from 'morgan';
 import session from 'express-session';
 
-import './passport';
 import api from './api';
 
 const app = express();
