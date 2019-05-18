@@ -16,7 +16,7 @@ export const create = async (req, res) => {
 
       res.status(200).send({ user: newUser, new: true });
     } else {
-      res.status(200).send({ new: false });
+      res.status(200).send({ user, new: false });
     }
   } catch (error) {
     console.log(error);

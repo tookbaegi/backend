@@ -49,12 +49,18 @@ export const update = async (req, res) => {
 
 export const list = async (req, res) => {
   const { id } = req.params;
+  const { place, person } = req.query;
 
   try {
     if (!id) {
       const quests = (await models.Quest.findAll({})).map(
         user => user.dataValues
       );
+      res.status(200).send(quests);
+    } else if (place && person) {
+      const quests = (await models.Quest.findAll({
+        where: { place, person }
+      })).map(user => user.dataValues);
       res.status(200).send(quests);
     } else {
       const user = await models.Quest.findOne({ where: { id } });
