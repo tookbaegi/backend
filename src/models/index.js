@@ -23,5 +23,8 @@ db.Comment = Comment(sequelize, Sequelize);
 
 db.User.hasMany(db.Quest, { foreignKey: 'userId' });
 db.Quest.hasMany(db.Comment, { foreignKey: 'questId' });
+db.User.hasMany(db.Comment, { foreignKey: 'userId' });
+
+db.Comment.belongsTo(db.User, { foreignKey: 'userId' });
 
 export default db;

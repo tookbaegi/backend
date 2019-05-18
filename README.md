@@ -88,6 +88,60 @@
   ```
   GET /api/quests
   ```
+- Return
+  ```
+  [
+    {
+        "id": 1,
+        "userId": 1,
+        "isProgress": true,
+        "place": "회식자리에서",
+        "person": "부장님",
+        "name": "모르게 신속히 9시에 빠져나가기",
+        "endAt": null,
+        "isPrivate": null,
+        "like": 0,
+        "createdAt": "2019-05-18T20:21:23.000Z",
+        "updatedAt": "2019-05-18T20:21:23.000Z",
+        "comments": [
+            {
+                "id": 1,
+                "content": "1",
+                "questId": 1,
+                "userId": 1,
+                "createdAt": "2019-05-18T20:21:24.000Z",
+                "updatedAt": "2019-05-18T20:21:24.000Z",
+                "user": {
+                    "id": 1,
+                    "name": "2",
+                    "email": "1",
+                    "type": "1",
+                    "token": "1",
+                    "createdAt": "2019-05-18T20:21:20.000Z",
+                    "updatedAt": "2019-05-18T20:21:20.000Z"
+                }
+            },
+            {
+                "id": 2,
+                "content": "1",
+                "questId": 1,
+                "userId": 1,
+                "createdAt": "2019-05-18T20:21:25.000Z",
+                "updatedAt": "2019-05-18T20:21:25.000Z",
+                "user": {
+                    "id": 1,
+                    "name": "2",
+                    "email": "1",
+                    "type": "1",
+                    "token": "1",
+                    "createdAt": "2019-05-18T20:21:20.000Z",
+                    "updatedAt": "2019-05-18T20:21:20.000Z"
+                }
+            }
+        ]
+    }
+  ]
+  ```
 
 ### 자신의 퀘스트 목록 가져오기
 
