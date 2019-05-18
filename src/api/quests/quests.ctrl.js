@@ -83,7 +83,8 @@ export const list = async (req, res) => {
           include: {
             model: models.User
           }
-        }
+        },
+        order: [['createdAt', 'DESC']]
       });
 
       res.status(200).send(quests);
