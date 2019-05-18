@@ -82,6 +82,36 @@
 
 ## Quest
 
+### 퀘스트 생성
+
+- URI
+  ```
+  POST /api/quests
+  ```
+- Body
+  ```
+  {
+    "userId": Number,
+    "person": String,
+    "place": String,
+    "name": String,
+  }
+  ```
+- Return
+  ```
+  {
+    "isProgress": true,
+    "like": 0,
+    "id": 15,
+    "userId": "1",
+    "person": "밀치는 할머니",
+    "place": "버스에서",
+    "name": "에게 한마",
+    "updatedAt": "2019-05-18T23:21:27.081Z",
+    "createdAt": "2019-05-18T23:21:27.081Z"
+  }
+  ```
+
 ### 퀘스트 목록 가져오기
 
 - URI
