@@ -76,9 +76,10 @@ export const list = async (req, res) => {
 
       res.status(200).send({ publicQuests, progressQuests, completeQuests });
     } else {
-      const quests = (await models.Quest.findAll({})).map(
-        quest => quest.dataValues
-      );
+      const quests = await models.Quest.findAll({
+        include: { model: models.Comment, limit: 2 }
+      });
+
       res.status(200).send(quests);
     }
   } catch (error) {

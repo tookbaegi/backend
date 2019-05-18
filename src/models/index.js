@@ -21,4 +21,7 @@ db.User = User(sequelize, Sequelize);
 db.Quest = Quest(sequelize, Sequelize);
 db.Comment = Comment(sequelize, Sequelize);
 
+db.User.hasMany(db.Quest, { foreignKey: 'userId' });
+db.Quest.hasMany(db.Comment, { foreignKey: 'questId' });
+
 export default db;
