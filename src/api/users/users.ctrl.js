@@ -4,14 +4,20 @@ export const create = async (req, res) => {
   const { name, email, type, token } = req.body;
 
   try {
-    const user = await models.User.create({
-      name,
-      email,
-      type,
-      token
-    });
+    const user = await models.User.findOne({ where: { token } });
 
-    res.status(200).send(user);
+    if (!user) {
+      const newUser = await models.User.create({
+        name,
+        email,
+        type,
+        token
+      });
+
+      res.status(200).send({ user: newUser, new: true });
+    } else {
+      res.status(200).send({ new: false });
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send(error);

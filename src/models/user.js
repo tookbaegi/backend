@@ -14,7 +14,7 @@ const user = (sequelize, DataTypes) =>
       allowNull: false
     },
     type: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
     token: {
