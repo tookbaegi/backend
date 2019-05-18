@@ -5,20 +5,21 @@ const user = (sequelize, DataTypes) =>
       primaryKey: true,
       autoIncrement: true
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     email: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    password: {
-      type: DataTypes.STRING
+    type: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
-    facebookId: {
-      type: DataTypes.STRING
-    },
-    kakaoId: {
-      type: DataTypes.STRING
-    },
-    googleId: {
-      type: DataTypes.STRING
+    token: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
