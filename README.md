@@ -172,6 +172,29 @@
 
 ### 해당 장소와 사람에 해당하는 퀘스트 목록 불러오기
 
+- URI
+  ```
+  GET /api/quests?place=PLACE&person=PERSON
+  ```
+- Return
+  ```
+  [
+    {
+        "id": 2,
+        "userId": 1,
+        "isProgress": false,
+        "place": "아아",
+        "person": "아아아",
+        "name": "으아",
+        "endAt": "2019-05-18T16:52:49.000Z",
+        "isPrivate": true,
+        "like": 0,
+        "createdAt": "2019-05-18T16:46:30.000Z",
+        "updatedAt": "2019-05-18T16:52:49.000Z"
+    }
+  ]
+  ```
+
 ## Comment
 
 ### 댓글 생성

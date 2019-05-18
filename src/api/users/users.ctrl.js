@@ -13,10 +13,12 @@ export const create = async (req, res) => {
         type,
         token
       });
+      newUser.dataValues.level = 0;
 
-      res.status(200).send({ user: newUser, new: true });
+      res.status(200).send({ user: newUser.dataValues, new: true });
     } else {
-      res.status(200).send({ user, new: false });
+      user.dataValues.level = await models.Quest.count({ userId: user.id });
+      res.status(200).send({ user: user.dataValues, new: false });
     }
   } catch (error) {
     console.log(error);
@@ -62,6 +64,7 @@ export const list = async (req, res) => {
       res.status(200).send(users);
     } else {
       const user = await models.User.findOne({ where: { id } });
+      user.dataValues.level = await models.Quest.count({ userId: user.id });
       res.status(200).send(user.dataValues);
     }
   } catch (error) {
