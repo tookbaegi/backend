@@ -51,40 +51,19 @@
 
 - URI
   ```
-  GET /api/users/:id?
+  GET /api/users/:id
   ```
 - Return
   ```
-  [
-    {
-        "id": 2,
-        "name": "2",
-        "email": "1",
-        "type": 1,
-        "token": "1",
-        "createdAt": "2019-05-18T13:41:13.000Z",
-        "updatedAt": "2019-05-18T13:41:13.000Z"
-    },
-    {
-        "id": 3,
-        "name": "2",
-        "email": "1",
-        "type": 1,
-        "token": "1",
-        "createdAt": "2019-05-18T13:44:19.000Z",
-        "updatedAt": "2019-05-18T13:44:19.000Z"
-    }
-  ]
-  ```
-  ```
   {
-    "id": 2,
-    "name": "2",
-    "email": "1",
-    "type": 1,
-    "token": "1",
-    "createdAt": "2019-05-18T13:41:13.000Z",
-    "updatedAt": "2019-05-18T13:41:13.000Z"
+    "id": 1,
+    "name": "ㅂㅈㄷㄱㅂㅈㄷㄱ",
+    "email": "haruholic@daum.net",
+    "type": "facebook.com",
+    "token": "4aO7llSZfoQ9qYhSXDiWyAbuuYl2",
+    "createdAt": "2019-05-18T17:11:48.000Z",
+    "updatedAt": "2019-05-18T18:12:22.000Z",
+    "level": 1
   }
   ```
 
@@ -107,7 +86,7 @@
 
 - URI
   ```
-  GET /api/quests/:id
+  GET /api/quests/:userId
   ```
 - Return
   ```
@@ -177,10 +156,6 @@
     }
   ]
   ```
-
-### ㅁㄴㅇ
-
-ㅁㅁ
 
 ## Comment
 

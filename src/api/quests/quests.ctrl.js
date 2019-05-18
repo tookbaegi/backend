@@ -48,7 +48,7 @@ export const update = async (req, res) => {
 };
 
 export const list = async (req, res) => {
-  const { id } = req.params;
+  const { userId } = req.params;
   const { place, person } = req.query;
 
   try {
@@ -57,7 +57,7 @@ export const list = async (req, res) => {
         where: { place, person, isPrivate: false, isProgress: false }
       })).map(user => user.dataValues);
       res.status(200).send(quests);
-    } else if (id) {
+    } else if (userId) {
       const publicQuests = (await models.Quest.findAll({
         where: {
           isPrivate: false
