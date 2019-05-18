@@ -218,6 +218,13 @@
   ]
   ```
 
+### 게시글 좋아요
+
+- URI
+  ```
+  POST /api/quests/:id/like
+  ```
+
 ## Comment
 
 ### 댓글 생성

@@ -80,6 +80,7 @@ export const list = async (req, res) => {
         include: {
           model: models.Comment,
           limit: 2,
+          order: [['createdAt', 'DESC']],
           include: {
             model: models.User
           }
