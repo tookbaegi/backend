@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import User from './user';
 import Quest from './quest';
+import Comment from './comment';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -18,5 +19,6 @@ db.Sequelize = Sequelize;
 
 db.User = User(sequelize, Sequelize);
 db.Quest = Quest(sequelize, Sequelize);
+db.Comment = Comment(sequelize, Sequelize);
 
 export default db;

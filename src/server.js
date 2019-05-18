@@ -4,6 +4,7 @@ dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
 import session from 'express-session';
+import cors from 'cors';
 
 import api from './api';
 
@@ -18,6 +19,7 @@ app.use(
     resave: true
   })
 );
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello World');
