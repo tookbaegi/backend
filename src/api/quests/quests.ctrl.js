@@ -79,12 +79,11 @@ export const list = async (req, res) => {
       const quests = await models.Quest.findAll({
         include: {
           model: models.Comment,
-          order: [['createdAt', 'DESC']],
           include: {
             model: models.User
           }
         },
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC'], [models.Comment, 'createdAt', 'DESC']]
       });
 
       res.status(200).send(quests);
