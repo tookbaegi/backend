@@ -169,3 +169,104 @@
   }
   // 포기, 성공 버튼 누르고 그 다음 화면인 공유 여부를 선택할 때의 결과만 보내주시면 됩니다
   ```
+
+## Comment
+
+### 댓글 생성
+
+- URI
+  ```
+  POST /api/comments
+  ```
+- Body
+  ```
+  {
+    content: String,
+    questId: Number,
+    userId: Number
+  }
+  ```
+- Return
+  ```
+  {
+    "id": 3,
+    "content": "3",
+    "userId": "1",
+    "questId": "1",
+    "updatedAt": "2019-05-18T17:14:02.575Z",
+    "createdAt": "2019-05-18T17:14:02.575Z"
+  }
+  ```
+
+### 댓글 수정
+
+- URI
+  ```
+  PATCH /api/comments/:id
+  ```
+- Body
+  ```
+  {
+    content: String
+  }
+  ```
+
+### 댓글 삭제
+
+- URI
+  ```
+  DELETE /api/comments/:id
+  ```
+
+### 댓글 목록
+
+- URI
+  ```
+  GET /api/comments
+  ```
+- Return
+  ```
+  [
+    {
+        "id": 1,
+        "content": "3",
+        "questId": 1,
+        "userId": 1,
+        "createdAt": "2019-05-18T17:07:40.000Z",
+        "updatedAt": "2019-05-18T17:09:18.000Z"
+    },
+    {
+        "id": 2,
+        "content": "3",
+        "questId": 1,
+        "userId": 1,
+        "createdAt": "2019-05-18T17:13:38.000Z",
+        "updatedAt": "2019-05-18T17:13:38.000Z"
+    },
+    {
+        "id": 3,
+        "content": "3",
+        "questId": 1,
+        "userId": 1,
+        "createdAt": "2019-05-18T17:14:02.000Z",
+        "updatedAt": "2019-05-18T17:14:02.000Z"
+    }
+  ]
+  ```
+
+* URI
+  ```
+  GET /api/comments/:id
+  ```
+
+- Return
+  ```
+  {
+    "id": 1,
+    "content": "3",
+    "questId": 1,
+    "userId": 1,
+    "createdAt": "2019-05-18T17:07:40.000Z",
+    "updatedAt": "2019-05-18T17:09:18.000Z"
+  }
+  ```
