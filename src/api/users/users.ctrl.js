@@ -13,7 +13,8 @@ export const create = async (req, res) => {
 
     res.status(200).send(user);
   } catch (error) {
-    res.status(500).end();
+    console.log(error);
+    res.status(500).send(error);
   }
 };
 
@@ -26,7 +27,8 @@ export const remove = async (req, res) => {
     });
     res.status(200).end();
   } catch (error) {
-    res.status(500).end();
+    console.log(error);
+    res.status(500).send(error);
   }
 };
 
@@ -38,7 +40,8 @@ export const update = async (req, res) => {
     await models.User.update({ name }, { where: { id } });
     res.status(200).end();
   } catch (error) {
-    res.status(500).end();
+    console.log(error);
+    res.status(500).send(error);
   }
 };
 
@@ -57,6 +60,6 @@ export const list = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).end();
+    res.status(500).send(error);
   }
 };
