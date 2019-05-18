@@ -49,7 +49,7 @@ export const update = async (req, res) => {
 
 export const list = async (req, res) => {
   const { userId } = req.params;
-  const { place, person } = req.query;
+  const { place, person, sort } = req.query;
 
   try {
     if (place && person) {
@@ -76,8 +76,10 @@ export const list = async (req, res) => {
 
       res.status(200).send({ publicQuests, progressQuests, completeQuests });
     } else {
-      const user = await models.Quest.findOne({ where: { id } });
-      res.status(200).send(user.dataValues);
+      const quests = (await models.Quest.findAll({})).map(
+        quest => quest.dataValues
+      );
+      res.status(200).send(quests);
     }
   } catch (error) {
     console.log(error);
