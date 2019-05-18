@@ -45,17 +45,16 @@ export const update = async (req, res) => {
 };
 
 export const list = async (req, res) => {
-  const { id } = req.params;
+  const { questId } = req.query;
 
   try {
-    if (!id) {
-      const users = (await models.Comment.findAll({})).map(
+    if (questId) {
+      const users = (await models.Comment.findAll({ questId })).map(
         user => user.dataValues
       );
       res.status(200).send(users);
     } else {
-      const user = await models.Comment.findOne({ where: { id } });
-      res.status(200).send(user.dataValues);
+      res.status(401).end();
     }
   } catch (error) {
     console.log(error);

@@ -103,49 +103,32 @@
 
 ## Quest
 
-### 퀘스트 목록
+### 자신의 퀘스트 목록 가져오기
 
 - URI
   ```
-  GET /api/quests
+  GET /api/quests/:id
   ```
 - Return
   ```
-  [
-    {
-        "id": 2,
-        "userId": 1,
-        "isProgress": false,
-        "place": "아아",
-        "person": "아아아",
-        "name": "으아",
-        "endAt": "2019-05-18T16:52:49.000Z",
-        "isPrivate": true,
-        "like": 0,
-        "createdAt": "2019-05-18T16:46:30.000Z",
-        "updatedAt": "2019-05-18T16:52:49.000Z"
-    }
-  ]
-  ```
-
-* URI
-  ```
-  GET /api/quests
-  ```
-* Return
-  ```
   {
-    "id": 2,
-    "userId": 1,
-    "isProgress": false,
-    "place": "아아",
-    "person": "아아아",
-    "name": "으아",
-    "endAt": "2019-05-18T16:52:49.000Z",
-    "isPrivate": true,
-    "like": 0,
-    "createdAt": "2019-05-18T16:46:30.000Z",
-    "updatedAt": "2019-05-18T16:52:49.000Z"
+    "publicQuests": [], // 공유한 퀘스트
+    "progressQuests": [], // 진행중인 퀘스트
+    "completeQuests": [ // 완료한 퀘스트
+        {
+            "id": 2,
+            "userId": 1,
+            "isProgress": false,
+            "place": "아아",
+            "person": "아아아",
+            "name": "으아",
+            "endAt": "2019-05-18T16:52:49.000Z",
+            "isPrivate": true,
+            "like": 1,
+            "createdAt": "2019-05-18T16:46:30.000Z",
+            "updatedAt": "2019-05-18T17:44:09.000Z"
+        }
+    ]
   }
   ```
 
@@ -195,6 +178,10 @@
   ]
   ```
 
+### ㅁㄴㅇ
+
+ㅁㅁ
+
 ## Comment
 
 ### 댓글 생성
@@ -243,11 +230,11 @@
   DELETE /api/comments/:id
   ```
 
-### 댓글 목록
+### 해당 퀘스트의 댓글 목록
 
 - URI
   ```
-  GET /api/comments
+  GET /api/comments?questId=QUEST_ID
   ```
 - Return
   ```
@@ -275,23 +262,14 @@
         "userId": 1,
         "createdAt": "2019-05-18T17:14:02.000Z",
         "updatedAt": "2019-05-18T17:14:02.000Z"
+    },
+    {
+        "id": 4,
+        "content": "으아",
+        "questId": 3,
+        "userId": 1,
+        "createdAt": "2019-05-18T18:12:28.000Z",
+        "updatedAt": "2019-05-18T18:12:28.000Z"
     }
   ]
-  ```
-
-* URI
-  ```
-  GET /api/comments/:id
-  ```
-
-- Return
-  ```
-  {
-    "id": 1,
-    "content": "3",
-    "questId": 1,
-    "userId": 1,
-    "createdAt": "2019-05-18T17:07:40.000Z",
-    "updatedAt": "2019-05-18T17:09:18.000Z"
-  }
   ```

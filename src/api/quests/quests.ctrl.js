@@ -57,11 +57,24 @@ export const list = async (req, res) => {
         where: { place, person, isPrivate: false, isProgress: false }
       })).map(user => user.dataValues);
       res.status(200).send(quests);
-    } else if (!id) {
-      const quests = (await models.Quest.findAll({})).map(
-        user => user.dataValues
-      );
-      res.status(200).send(quests);
+    } else if (id) {
+      const publicQuests = (await models.Quest.findAll({
+        where: {
+          isPrivate: false
+        }
+      })).map(user => user.dataValues);
+      const progressQuests = (await models.Quest.findAll({
+        where: {
+          isProgress: true
+        }
+      })).map(user => user.dataValues);
+      const completeQuests = (await models.Quest.findAll({
+        where: {
+          isProgress: false
+        }
+      })).map(user => user.dataValues);
+
+      res.status(200).send({ publicQuests, progressQuests, completeQuests });
     } else {
       const user = await models.Quest.findOne({ where: { id } });
       res.status(200).send(user.dataValues);
