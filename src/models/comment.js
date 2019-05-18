@@ -9,11 +9,11 @@ const comment = (sequelize, DataTypes) =>
       type: DataTypes.TEXT,
       allowNull: false
     },
-    quest_id: {
+    questId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

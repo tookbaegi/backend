@@ -1,14 +1,14 @@
 const quest = (sequelize, DataTypes) =>
   sequelize.define('quest', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    user_id: { type: DataTypes.INTEGER, allowNull: false },
+    userId: { type: DataTypes.INTEGER, allowNull: false },
     isProgress: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
     },
-    where: { type: DataTypes.INTEGER, allowNull: false },
-    who: { type: DataTypes.STRING, allowNull: false },
+    place: { type: DataTypes.STRING, allowNull: false },
+    person: { type: DataTypes.STRING, allowNull: false },
     name: { type: DataTypes.STRING, allowNull: false },
     endAt: { type: DataTypes.DATE },
     isPrivate: { type: DataTypes.BOOLEAN },
