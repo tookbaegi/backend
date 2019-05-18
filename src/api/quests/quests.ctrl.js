@@ -79,7 +79,6 @@ export const list = async (req, res) => {
       const quests = await models.Quest.findAll({
         include: {
           model: models.Comment,
-          limit: 2,
           order: [['createdAt', 'DESC']],
           include: {
             model: models.User
